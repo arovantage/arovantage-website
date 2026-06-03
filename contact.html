@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Contact Us | AroVantage LLC - Morris Plains, NJ</title>
+<meta name="description" content="Connect with AroVantage LLC for enterprise client inquiries or career opportunities. Morris Plains, NJ. Call 973-525-3107 or email reach@arovantage.com."/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"AroVantage LLC","url":"https://arovantage.com","telephone":"+1-973-525-3107","email":"reach@arovantage.com","address":{"@type":"PostalAddress","addressLocality":"Morris Plains","addressRegion":"NJ","addressCountry":"US"}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/style.css"/><link rel="stylesheet" href="css/animations.css"/>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+<div class="nav-container">
+<a href="index.html" class="nav-logo"><span class="logo-aro">Aro</span><span class="logo-vantage">Vantage</span><span class="logo-llc"> LLC</span></a>
+<button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+<ul class="nav-menu" id="navMenu">
+<li><a href="index.html" class="nav-link">Home</a></li>
+<li><a href="about.html" class="nav-link">About</a></li>
+<li><a href="services.html" class="nav-link">Services</a></li>
+<li><a href="insights.html" class="nav-link">Insights &amp; Careers</a></li>
+<li><a href="contact.html" class="nav-link nav-cta active">Contact Us</a></li>
+</ul>
+</div>
+</nav>
+<section class="page-hero short">
+<div class="page-hero-content">
+<div class="section-label light fade-in-up">Get In Touch</div>
+<h1 class="fade-in-up delay-1">Let's Start a <span class="accent">Conversation</span></h1>
+<p class="fade-in-up delay-2">Whether you're evaluating enterprise advisory services or exploring a career with AroVantage, we'd like to hear from you.</p>
+</div>
+</section>
+<section class="contact-section section-pad">
+<div class="container">
+<div class="contact-layout">
+<div class="contact-form-wrapper fade-in-up">
+<div class="form-type-selector">
+<button class="form-type-btn active" data-type="client" id="btnClient">Enterprise Consultation</button>
+<button class="form-type-btn" data-type="career" id="btnCareer">Career Opportunity</button>
+</div>
+<form id="contactForm" class="contact-form" novalidate>
+<input type="hidden" name="inquiry_type" id="inquiryType" value="client"/>
+<div class="form-row">
+<div class="form-group"><label for="firstName">First Name *</label><input type="text" id="firstName" name="first_name" required placeholder="John"/><span class="field-error" id="firstNameError"></span></div>
+<div class="form-group"><label for="lastName">Last Name *</label><input type="text" id="lastName" name="last_name" required placeholder="Smith"/><span class="field-error" id="lastNameError"></span></div>
+</div>
+<div class="form-row">
+<div class="form-group"><label for="email">Business Email *</label><input type="email" id="email" name="email" required placeholder="john.smith@company.com"/><span class="field-error" id="emailError"></span></div>
+<div class="form-group"><label for="phone">Phone Number</label><input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000"/></div>
+</div>
+<div class="client-fields">
+<div class="form-row">
+<div class="form-group"><label for="company">Company / Organization *</label><input type="text" id="company" name="company" placeholder="Your Organization"/></div>
+<div class="form-group"><label for="title">Your Title</label><input type="text" id="title" name="title" placeholder="Chief Data Officer"/></div>
+</div>
+<div class="form-group"><label for="service">Primary Area of Interest *</label>
+<select id="service" name="service">
+<option value="">Select a service area...</option>
+<option value="advisory">Transformation Advisory Services</option>
+<option value="edm">Enterprise Data Management &amp; Strategy</option>
+<option value="ai">AI &amp; Custom Model Engineering</option>
+<option value="multiple">Multiple Service Areas</option>
+</select></div>
+</div>
+<div class="career-fields" style="display:none">
+<div class="form-row">
+<div class="form-group"><label for="currentRole">Current Role / Title *</label><input type="text" id="currentRole" name="current_role" placeholder="Senior Data Architect"/></div>
+<div class="form-group"><label for="experience">Years of Experience</label>
+<select id="experience" name="experience">
+<option value="">Select...</option>
+<option value="5-10">5-10 years</option>
+<option value="10-15">10-15 years</option>
+<option value="15-20">15-20 years</option>
+<option value="20+">20+ years</option>
+</select></div>
+</div>
+<div class="form-group"><label for="expertise">Primary Domain Expertise *</label>
+<select id="expertise" name="expertise">
+<option value="">Select your domain...</option>
+<option value="ai">AI / Machine Learning Engineering</option>
+<option value="data">Data Architecture &amp; Engineering</option>
+<option value="governance">Data Governance &amp; Management</option>
+<option value="advisory">Transformation &amp; Strategy Advisory</option>
+<option value="other">Other</option>
+</select></div>
+</div>
+<div class="form-group"><label for="message">Message *</label><textarea id="message" name="message" rows="5" required placeholder="Please share a brief overview of your initiative, challenge, or how you would like to connect with AroVantage..."></textarea><span class="field-error" id="messageError"></span></div>
+<div class="form-footer">
+<div class="form-privacy">Your information is treated with strict confidentiality and will not be shared with third parties.</div>
+<button type="submit" class="btn btn-primary btn-submit" id="submitBtn"><span id="submitText">Send Message</span><span id="submitSpinner" style="display:none">Sending...</span></button>
+</div>
+<div id="formSuccess" class="form-success" style="display:none">
+<h3>Message Sent Successfully</h3>
+<p>Thank you for reaching out to AroVantage. A member of our team will be in contact shortly.</p>
+</div>
+</form>
+</div>
+<div class="contact-sidebar fade-in-up delay-2">
+<div class="contact-info-card">
+<h3>Direct Contact</h3>
+<div class="contact-detail"><div class="contact-detail-label">Phone</div><a href="tel:+19735253107" class="contact-detail-value">973-525-3107</a></div>
+<div class="contact-detail"><div class="contact-detail-label">Email</div><a href="mailto:reach@arovantage.com" class="contact-detail-value">reach@arovantage.com</a></div>
+<div class="contact-detail"><div class="contact-detail-label">Headquarters</div><div class="contact-detail-value">Morris Plains, NJ, USA</div></div>
+</div>
+<div class="map-container">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.5!2d-74.4813!3d40.8315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c3019c3eb36a15%3A0x5e0f1a1e2d5f3b8a!2sMorris+Plains%2C+NJ!5e0!3m2!1sen!2sus!4v1700000000000" width="100%" height="220" style="border:0;border-radius:8px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="AroVantage LLC - Morris Plains, NJ"></iframe>
+</div>
+<div class="response-promise"><p>We respond to all enterprise inquiries within <strong>24 business hours</strong>.</p></div>
+</div>
+</div>
+</div>
+</section>
+<footer class="footer">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-brand"><a href="index.html" class="nav-logo"><span class="logo-aro">Aro</span><span class="logo-vantage">Vantage</span><span class="logo-llc"> LLC</span></a><p>Elite professional services anchored by 25+ years of enterprise experience. Morris Plains, New Jersey.</p><div class="footer-contact"><a href="tel:+19735253107">973-525-3107</a><a href="mailto:reach@arovantage.com">reach@arovantage.com</a></div></div>
+<div class="footer-nav"><h4>Company</h4><ul><li><a href="about.html">About Us</a></li><li><a href="services.html">Services</a></li><li><a href="insights.html">Insights</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+<div class="footer-nav"><h4>Services</h4><ul><li><a href="services.html#advisory">Transformation Advisory</a></li><li><a href="services.html#edm">Enterprise Data Management</a></li><li><a href="services.html#ai">AI &amp; Model Engineering</a></li></ul></div>
+<div class="footer-nav"><h4>Contact</h4><ul><li><a href="contact.html?type=client">Client Inquiry</a></li><li><a href="contact.html?type=career">Career Inquiry</a></li></ul></div>
+</div>
+<div class="footer-bottom"><p>&copy; 2026 AroVantage LLC. All rights reserved. | Morris Plains, NJ</p></div>
+</div>
+</footer>
+<script src="js/main.js"></script><script src="js/contact.js"></script>
+</body>
+</html>
