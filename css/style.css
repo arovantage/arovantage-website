@@ -1,3 +1,4 @@
+:root{--navy:#003366;--accent:#4A90E2;--cyan:#00A8B5;--white:#ffffff;--ice:#F4F6F9;--dark:#0a1628;--text:#1a2332;--text-light:#6b7a99;--border:#e1e8f0;--shadow:0 4px 24px rgba(0,51,102,0.08);--shadow-lg:0 20px 60px rgba(0,51,102,0.15);--transition:all 0.3s ease;--radius:8px;--radius-lg:16px;}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;font-size:16px;}
 body{font-family:'Roboto','Open Sans',sans-serif;color:var(--text);background:var(--white);line-height:1.6;overflow-x:hidden;}
