@@ -1,4 +1,4 @@
-// AroVantage Contact Form
+// AroVantage Contact Form - Live Email via Formspree
 document.addEventListener('DOMContentLoaded', function() {
   var btnClient = document.getElementById('btnClient');
   var btnCareer = document.getElementById('btnCareer');
@@ -6,11 +6,14 @@ document.addEventListener('DOMContentLoaded', function() {
   var careerFields = document.querySelector('.career-fields');
   var inquiryType = document.getElementById('inquiryType');
 
+  // Formspree endpoint - delivers all submissions to reach@arovantage.com
+  var FORMSPREE_ENDPOINT = 'https://formspree.io/f/reach@arovantage.com';
+
   function switchType(type) {
     if (!btnClient) return;
     if (type === 'career') {
       btnClient.classList.remove('active');
-      btnCareer.classList.add('active');
+      btnCareer && btnCareer.classList.add('active');
       if (clientFields) clientFields.style.display = 'none';
       if (careerFields) careerFields.style.display = 'block';
       if (inquiryType) inquiryType.value = 'career';
@@ -61,15 +64,36 @@ document.addEventListener('DOMContentLoaded', function() {
     if (submitText) submitText.style.display = 'none';
     if (submitSpinner) submitSpinner.style.display = 'inline';
 
-    // Simulate submission - in production connect to a form service
-    setTimeout(function() {
-      form.style.display = 'none';
-      var success = document.getElementById('formSuccess');
-      if (success) success.style.display = 'block';
-    }, 1500);
+    var formData = new FormData(form);
+    var type = (inquiryType && inquiryType.value === 'career') ? 'CAREER INQUIRY' : 'ENTERPRISE CLIENT INQUIRY';
+    formData.append('_subject', '[AroVantage.com] ' + type + ' from ' + (firstName ? firstName.value : '') + ' ' + (lastName ? lastName.value : ''));
+    formData.append('_replyto', email ? email.value : '');
+
+    fetch(FORMSPREE_ENDPOINT, {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(function(response) {
+      if (response.ok) {
+        form.style.display = 'none';
+        var success = document.getElementById('formSuccess');
+        if (success) success.style.display = 'block';
+      } else {
+        if (submitBtn) submitBtn.disabled = false;
+        if (submitText) submitText.style.display = 'inline';
+        if (submitSpinner) submitSpinner.style.display = 'none';
+        alert('There was an issue submitting the form. Please email us directly at reach@arovantage.com');
+      }
+    })
+    .catch(function() {
+      if (submitBtn) submitBtn.disabled = false;
+      if (submitText) submitText.style.display = 'inline';
+      if (submitSpinner) submitSpinner.style.display = 'none';
+      alert('There was an issue submitting the form. Please email us directly at reach@arovantage.com');
+    });
   });
 
-  // Handle URL params
   var params = new URLSearchParams(window.location.search);
   var type = params.get('type');
   if (type === 'career') switchType('career');
